@@ -1,0 +1,39 @@
+﻿@model ERP.View.Web.ViewModel.IndexVM
+
+<div id="listaClientes">
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Sexo</th>
+            <th>Data Nasc.</th>
+            <th>Limite de Compra</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Clientes)
+        {
+            <tr>
+                <td>
+                   @item.Codigo
+                </td>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.Sexo
+                </td>
+                <td>
+                    @item.DataNascimento.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.LimiteCompra
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = @item.Codigo }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = @item.Codigo })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

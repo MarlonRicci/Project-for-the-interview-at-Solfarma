@@ -1,0 +1,28 @@
+﻿main {
+    margin-left: 0 !important;
+}
+
+.paginaConsultaClientes {
+    padding: 0 3rem;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+}
+
+hr {
+    border-color: var(--main-bg-color);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+}
+
+.novoCliente button {
+    padding: 5px 70px;
+}

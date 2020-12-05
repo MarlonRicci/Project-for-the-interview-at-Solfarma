@@ -1,0 +1,35 @@
+﻿@model ERP.View.Web.ViewModel.IndexVM
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+@Styles.Render("~/Assets/styles/Cliente/index.css")
+
+<div class="paginaConsultaClientes">
+    <header class="cabecalho">
+        <h1>Clientes</h1>
+        <div class="filtro">
+            @using (Ajax.BeginForm("Index", "Cliente", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "listaClientes" }))
+            {
+                <input id="nome" name="nome" type="text" value="" placeholder="Nome">
+                <input type="submit" value="Pesquisar" id="pesquisarCliente" />
+            }
+        </div>
+    </header>
+    <hr />
+    <main class="row main">
+        @Html.Partial("_Clientes", Model)
+        @using (Html.BeginForm("Edit", "Cliente", FormMethod.Get))
+        {
+            <div class="row novoCliente">
+                <input type="submit" value="Novo Cliente" />
+            </div>
+        }
+
+    </main>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
